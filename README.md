@@ -1,50 +1,50 @@
-##Reliance Stock Price Prediction
-#Overview
-This project predicts the future stock price of Reliance Industries using Machine Learning techniques. Historical stock market data is used to train the model and forecast future prices.
+#  Reliance Stock Price Prediction
 
-#Features
--Historical stock data analysis
--Data visualization using graphs
--Stock price prediction using ML models
--Train/Test split evaluation
--Future price forecasting
+End-to-end machine learning project predicting next-day closing 
+price of Reliance Industries (NSE) using 26 years of historical data.
 
-#Technologies Used
--Python
--NumPy
--Pandas
--Matplotlib
--Scikit-learn
--Jupyter Notebook
+##  Results
 
-#Dataset
-The dataset contains historical stock prices of Reliance Industries including:
--Open price
--Close price
--High price
--Low price
--Volume
+| Model           | RMSE   | R²    | MAPE  |
+|-----------------|--------|-------|-------|
+| Prophet         | ₹162   | 0.596 | 8.2%  |
+| XGBoost (tuned) | ₹24    | 0.943 | 1.4%  |
+| LSTM            | ₹54    | 0.72  | 3.18% |
 
-#Data Source:
--Yahoo Finance
--NSE/BSE APIs
+**Winner: XGBoost** — engineered technical indicators outperform 
+raw sequence learning for daily stock prediction.
 
-#Machine Learning Models:
-Prophet 
-XGBoost with feature engineering 
+##  Tech Stack
 
-#Example:
-This project mainly uses XGBoost model because it performs well on time-series forecasting problems.We only take ML algorithms not any DL algorithm for now.
+| Tool | Purpose |
+|------|---------|
+| `yfinance` | Fetch NSE stock data via Yahoo Finance API |
+| `PostgreSQL` | Store and query historical price data |
+| `SQLAlchemy` | Python ↔ PostgreSQL connection |
+| `XGBoost` | Primary prediction model |
+| `Prophet` | Trend forecasting baseline |
+| `TensorFlow/Keras` | LSTM deep learning model |
+| `Optuna` | Hyperparameter tuning |
 
-#Project Workflow
--Data Collection(from API's)
--Data Cleaning
--Data Preprocessing
--Feature Scaling
--Model Training on differnt model
--Prediction
--Visualization of Results acroos all model
+## Project Structure
 
-#Results
-Model achieved good prediction accuracy(r^2=95% on XGBoost) on historical data.
-Predicted trends closely follow actual stock price movement.
+```text
+├── data_pipeline.ipynb              # Scrape + store in PostgreSQL
+├── Reliance_price_prediction.ipynb  # EDA + all 3 models
+├── lstm_stock.ipynb                 # LSTM deep learning model
+└── README.md
+```
+
+## 📌 Conclusion
+
+XGBoost with engineered technical indicators (R²=0.942) outperforms 
+LSTM (R²=0.73), demonstrating that domain knowledge adds more 
+predictive signal than raw sequence learning for daily NSE stocks.
+
+## 👤 Author
+
+**Kuldip Lakhtariya**  
+B.Tech Student | ML & Data Science  
+📍 Ahmedabad, Gujarat
+
+[![GitHub](https://img.shields.io/badge/GitHub-Kuldip--Lakhtariya-black)](https://github.com/Kuldip-Lakhtariya)
